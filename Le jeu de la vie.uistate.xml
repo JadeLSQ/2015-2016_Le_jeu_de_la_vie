@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2uistate>
+    <!--This is a UI state file - its content describes the user interface settings when the project was last open.
+It is entirely optional and the project will load without it.  If you are placing the project under source control,
+you probably do not want to add any .uistate.xml files to the repository.-->
+    <configurations>
+        <active>
+            <configuration name="HTML5" />
+        </active>
+        <display name="HTML5" />
+    </configurations>
+    <open-tabs>
+        <layout order="0">Exterieur</layout>
+        <layout order="2">Travail_1</layout>
+        <event-sheet order="1">Comportement Exterieur</event-sheet>
+        <event-sheet active="1" order="3">Comportement Travail_1</event-sheet>
+        <event-sheet order="4">Comportement Travail_2</event-sheet>
+    </open-tabs>
+    <properties>
+        <property expanded="1" name="About" />
+        <property expanded="1" name="Project settings" />
+        <property expanded="0" name="Window Size" />
+        <property expanded="1" name="Configuration Settings" />
+    </properties>
+    <families-expanded root="1" />
+    <folders-expanded>
+        <folder expanded="1" path="object-folder/" />
+        <folder expanded="1" path="layout-folder/" />
+        <folder expanded="1" path="event-folder/" />
+        <folder expanded="0" path="file-folder/" />
+        <folder expanded="1" path="sound-folder/" />
+        <folder expanded="1" path="music-folder/" />
+        <folder expanded="0" path="file-folder/Icons/" />
+        <folder expanded="0" path="sound-folder/Pieces/" />
+        <folder expanded="0" path="sound-folder/Douleur/" />
+        <folder expanded="0" path="sound-folder/Arme/" />
+        <folder expanded="1" path="animation-folder/sPerso/" />
+        <folder expanded="1" path="animation-folder/sPerso/Marche/" />
+        <folder expanded="1" path="animation-folder/sPerso/Fixe/" />
+        <folder expanded="1" path="animation-folder/sPerso/Marche Gun/" />
+        <folder expanded="1" path="animation-folder/sPerso/Fixe Gun/" />
+        <folder expanded="1" path="animation-folder/sPerso/Transforme/" />
+        <folder expanded="1" path="animation-folder/sPorteMagasin/" />
+        <folder expanded="1" path="animation-folder/sHitBoxPerso/" />
+        <folder expanded="1" path="animation-folder/sAmi/" />
+        <folder expanded="1" path="animation-folder/sPorteTravail_1/" />
+        <folder expanded="1" path="animation-folder/sExclamFeedBack/" />
+        <folder expanded="1" path="animation-folder/sHeyFeedBack/" />
+        <folder expanded="1" path="animation-folder/sGerbeSang/" />
+        <folder expanded="1" path="animation-folder/sBulletNous/" />
+        <folder expanded="1" path="animation-folder/sExplosion/" />
+        <folder expanded="1" path="animation-folder/sObjetUtiliseCroissant/" />
+        <folder expanded="1" path="animation-folder/sVendeur/" />
+        <folder expanded="1" path="animation-folder/sEtale/" />
+        <folder expanded="1" path="animation-folder/sTableau_Travail_1/" />
+        <folder expanded="1" path="animation-folder/sFond_Travail_2/" />
+        <folder expanded="1" path="animation-folder/sPorteTravail_2/" />
+        <folder expanded="1" path="animation-folder/sMaisons/" />
+        <folder expanded="1" path="animation-folder/sToitsMaisons/" />
+        <folder expanded="1" path="animation-folder/sCroissant/" />
+        <folder expanded="1" path="animation-folder/sSortie/" />
+        <folder expanded="1" path="animation-folder/sBulletEnnemi/" />
+        <folder expanded="1" path="animation-folder/sObjetAchat/" />
+        <folder expanded="1" path="animation-folder/sSuivant/" />
+        <folder expanded="1" path="animation-folder/sBossPortrait/" />
+        <folder expanded="1" path="animation-folder/sPersoPortrait/" />
+        <folder expanded="1" path="animation-folder/sBoss/" />
+        <folder expanded="1" path="animation-folder/sHitBoxAmis/" />
+        <folder expanded="1" path="animation-folder/sGarde/" />
+        <folder expanded="1" path="animation-folder/sEnnemi/" />
+        <folder expanded="1" path="animation-folder/sHitBoxEnnemi/" />
+        <folder expanded="1" path="animation-folder/sHUD_d/" />
+        <folder expanded="1" path="animation-folder/sFondDialogue/" />
+        <folder expanded="1" path="animation-folder/sFin1/" />
+        <folder expanded="1" path="animation-folder/sFin2/" />
+        <folder expanded="1" path="animation-folder/sNuagesFin/" />
+        <folder expanded="1" path="animation-folder/sMortFin/" />
+        <folder expanded="1" path="animation-folder/sObjetUtiliseGun/" />
+        <folder expanded="1" path="animation-folder/sCamera/" />
+        <folder expanded="1" path="animation-folder/Gospers_glider_gun/" />
+        <folder expanded="1" path="animation-folder/grafiti/" />
+        <folder expanded="1" path="animation-folder/grafiti_/" />
+        <folder expanded="1" path="animation-folder/touches_directionnelles/" />
+        <folder expanded="1" path="animation-folder/scool_/" />
+    </folders-expanded>
+</c2uistate>

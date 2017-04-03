@@ -1,0 +1,419 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Comportement Travail_1</name>
+    <events>
+        <variable comment="Pour avoir un timer bien initialisé" constant="0" name="OrigineTime" sid="2998834462925618" static="0" type="number">0</variable>
+        <variable comment="Pour faire les décomptes" constant="0" name="CurrentTime" sid="9472996137028042" static="0" type="number">0</variable>
+        <variable comment="Score dans les minis jeux" constant="0" name="Score" sid="5753730548389573" static="0" type="number">0</variable>
+        <variable comment="Mode actuel pour Travail_1" constant="0" name="Start" sid="9514402160217073" static="0" type="number">0</variable>
+        <variable comment="Valeur random du signe pour Travail_1" constant="0" name="SigneINT" sid="1232396439404463" static="0" type="number">0</variable>
+        <variable comment="Signe correspondant au signe pour Travail_1" constant="0" name="SigneTXT" sid="7068637984296087" static="0" type="text"></variable>
+        <variable comment="Premier nombre généré pour Travail_1" constant="0" name="First" sid="7677224671668545" static="0" type="number">0</variable>
+        <variable comment="Second chiffre pour Travail_1" constant="0" name="Second" sid="1992584858514838" static="0" type="number">0</variable>
+        <variable comment="Résultat attendu pour Travail_1" constant="0" name="Resultat" sid="8857533241977032" static="0" type="number">-1</variable>
+        <variable comment="Texte temporaire" constant="0" name="TexteTemp" sid="6209192500039946" static="0" type="text"></variable>
+        <event-block sid="7055424692135007">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="6810527188346925" type="System" />
+            </conditions>
+            <actions>
+                <action id="6" name="Stop" sid="6681038624542682" type="Audio">
+                    <param id="0" name="Tag">&quot;Ambiance&quot;</param>
+                </action>
+                <action id="0" name="Play" sid="4771940862237828" type="Audio">
+                    <param id="0" name="Audio file">Calcul_Choir_ Bella Ciao</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">-23</param>
+                    <param id="1" name="Tag (optional)">&quot;Ambiance&quot;</param>
+                </action>
+                <action id="0" name="Set text" sid="7480016273676902" type="tScore">
+                    <param id="0" name="Text">&quot;Argent : &quot; &amp; Argent &amp; &quot;€&quot;</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block any="1" sid="9715208337915629">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="5254314254054892" type="System">
+                            <param id="0" name="Variable">NbAmisTravail_1</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="3359077939599291" type="System">
+                            <param id="0" name="Variable">NbAmisSuit</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="7667162556470376" type="tQuelquonque">
+                            <param id="0" name="Text">NbAmisTravail_1 &amp; &quot; amis travaillent pour vous&quot; &amp; newline &amp; NbAmisSuit &amp; &quot; amis vous suivent&quot;</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="3264653890166801" type="tQuelquonque">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>Démarage du travail à l&apos;appui sur le bouton</comment>
+        <event-block sid="1487549781880637">
+            <conditions>
+                <condition id="0" name="On clicked" sid="3254299841612579" type="bStart" />
+                <condition id="-14" name="Compare variable" sid="7169182678071948" type="System">
+                    <param id="0" name="Variable">Start</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="2330033845069074" type="System">
+                    <param id="0" name="Variable">Start</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="6595238970067084" type="System">
+                    <param id="0" name="Variable">CurrentTime</param>
+                    <param id="1" name="Value">time</param>
+                </action>
+                <action id="-9" name="Set value" sid="9412418807152804" type="System">
+                    <param id="0" name="Variable">OrigineTime</param>
+                    <param id="1" name="Value">time</param>
+                </action>
+                <action id="0" name="Play" sid="4593872979058185" type="Audio">
+                    <param id="0" name="Audio file">Bouton_1</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="2680813558327495" title="Gestion du calcul random">
+            <sub-events>
+                <event-block sid="4109946582297699">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="6781248825760059" type="System">
+                            <param id="0" name="Variable">SigneINT</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="91056079361307" type="System">
+                            <param id="0" name="Variable">SigneTXT</param>
+                            <param id="1" name="Value">&quot;-&quot;</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="2556647505886316" type="System">
+                            <param id="0" name="Variable">Resultat</param>
+                            <param id="1" name="Value">First - Second</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="4761225218731488">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="912614017879082" type="System">
+                            <param id="0" name="Variable">SigneINT</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="5725291595513582" type="System">
+                            <param id="0" name="Variable">SigneTXT</param>
+                            <param id="1" name="Value">&quot;+&quot;</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="941090073297075" type="System">
+                            <param id="0" name="Variable">Resultat</param>
+                            <param id="1" name="Value">First + Second</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="1710104739994358">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="3131221416532037" type="System">
+                            <param id="0" name="Variable">SigneINT</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="5645215286432134" type="System">
+                            <param id="0" name="Variable">SigneTXT</param>
+                            <param id="1" name="Value">&quot;x&quot;</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="1379312269784933" type="System">
+                            <param id="0" name="Variable">Resultat</param>
+                            <param id="1" name="Value">First * Second</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="2433361246162292">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="4988737384769496" type="System">
+                            <param id="0" name="Variable">SigneINT</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">3</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="4575216718543526" type="System">
+                            <param id="0" name="Variable">First</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Value">Resultat * Second</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="3643338717835656" type="System">
+                            <param id="0" name="Variable">SigneTXT</param>
+                            <param id="1" name="Value">&quot;/&quot;</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="2222522396509544" type="System">
+                            <param id="0" name="Variable">Resultat</param>
+                            <param id="1" name="Value">First</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="2200046222652915" type="System">
+                            <param id="0" name="Variable">First</param>
+                            <param id="1" name="Value">First * Second</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="396696226426217">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="8523551857046081" type="System">
+                            <param id="0" name="Variable">SigneINT</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">4</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="9010044267304833" type="System">
+                            <param id="0" name="Variable">SigneTXT</param>
+                            <param id="1" name="Value">&quot;%&quot;</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="5122545703062918" type="System">
+                            <param id="0" name="Variable">Resultat</param>
+                            <param id="1" name="Value">First % Second</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <comment>Validation du résultat entrée</comment>
+        <event-block sid="2702927156793288">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="9160318009091714" type="System">
+                    <param id="0" name="Variable">Start</param>
+                    <param id="1" name="Comparison">1</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block any="1" sid="8483486412313939">
+                    <conditions>
+                        <condition id="0" name="On clicked" sid="336075360563629" type="bValide" />
+                        <condition id="0" name="On key pressed" sid="7359952543238167" type="Keyboard">
+                            <param id="0" name="Key">13 (Return)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="5229944875008572" type="System">
+                            <param id="0" name="Variable">CurrentTime</param>
+                            <param id="1" name="Value">time</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="6898756660114149" type="System">
+                            <param id="0" name="Variable">Start</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="195718507141042">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="3509078423456664" type="System">
+                                    <param id="0" name="Variable">Resultat</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">int(kEntreeClavier.Text)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="9087124819064627" type="System">
+                                    <param id="0" name="Variable">TexteTemp</param>
+                                    <param id="1" name="Value">&quot;Good&quot;</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="8398560278372227" type="System">
+                                    <param id="0" name="Variable">Score</param>
+                                    <param id="1" name="Value">5</param>
+                                </action>
+                                <action id="0" name="Play" sid="9641764666354645" type="Audio">
+                                    <param id="0" name="Audio file">Bouton_1</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="6208368574710075">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="6435909139884234" type="System">
+                                    <param id="0" name="Variable">Resultat</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Value">int(kEntreeClavier.Text)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="715392756364911" type="System">
+                                    <param id="0" name="Variable">TexteTemp</param>
+                                    <param id="1" name="Value">&quot;Bad&quot;</param>
+                                </action>
+                                <action id="-11" name="Subtract from" sid="1420466184183537" type="System">
+                                    <param id="0" name="Variable">Score</param>
+                                    <param id="1" name="Value">3</param>
+                                </action>
+                                <action id="0" name="Play" sid="5283534717956701" type="Audio">
+                                    <param id="0" name="Audio file">Error_2</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">-7</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>Actualisations diverses et nouveau calcul</comment>
+        <event-block sid="7095038952115212">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="7807043022516334" type="System" />
+                <condition id="-14" name="Compare variable" sid="8856907521655525" type="System">
+                    <param id="0" name="Variable">Start</param>
+                    <param id="1" name="Comparison">1</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="8688436144148809" type="tScore">
+                    <param id="0" name="Text">&quot;Argent : &quot; &amp; Argent &amp; &quot;€ + &quot; &amp;  Score &amp; &quot;€&quot; &amp; newline &amp; &quot;Temps de travail : &quot; &amp; int(time - OrigineTime)</param>
+                </action>
+                <action id="0" name="Set text" sid="7193286247257364" type="tCalcul">
+                    <param id="0" name="Text">TexteTemp &amp; newline &amp; First &amp; &quot; &quot; &amp; SigneTXT &amp; &quot; &quot; &amp; Second</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="3620226940330326">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="7156410253444425" type="System">
+                            <param id="0" name="Variable">CurrentTime</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">time - 1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="2623217941210803" type="System">
+                            <param id="0" name="Variable">TexteTemp</param>
+                            <param id="1" name="Value">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="4901613736693288">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="9484710546243493" type="System">
+                            <param id="0" name="First value">start</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="1462049832238899" type="System">
+                            <param id="0" name="Variable">First</param>
+                            <param id="1" name="Value">int(random(0,11))</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="7999846985022882" type="System">
+                            <param id="0" name="Variable">Second</param>
+                            <param id="1" name="Value">int(random(1,11))</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="2798759316871668" type="System">
+                            <param id="0" name="Variable">SigneINT</param>
+                            <param id="1" name="Value">int(random(0,5))</param>
+                        </action>
+                        <action id="0" name="Set text" sid="4775862626010262" type="kEntreeClavier">
+                            <param id="0" name="Text">&quot;&quot;</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="7315153125876871" type="System">
+                            <param id="0" name="Variable">Start</param>
+                            <param id="1" name="Value">-1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>Gestion du travail des amis</comment>
+        <event-block sid="3178296557539711">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="6493492195178612" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="3909215188511931" type="tQuelquonque">
+                    <param id="0" name="Text">NbAmisTravail_1 &amp; &quot; amis travaillent pour vous&quot; &amp; newline &amp; NbAmisSuit &amp; &quot; amis vous suivent&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="1839466553216928">
+            <conditions>
+                <condition id="0" name="On clicked" sid="1530109876692004" type="bExploiterAmi" />
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="4159361800762172" type="tQuelquonque">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="4817524116240745">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="7195143710344078" type="System">
+                            <param id="0" name="Variable">NbAmisSuit</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Subtract from" sid="1817570684659622" type="System">
+                            <param id="0" name="Variable">NbAmisSuit</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="6280663101741299" type="System">
+                            <param id="0" name="Variable">NbAmisTravail_1</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>Sortie de la feuille</comment>
+        <event-block sid="5221833112240396">
+            <conditions>
+                <condition id="0" name="On clicked" sid="1667722156950571" type="bSortir" />
+            </conditions>
+            <actions>
+                <action id="-10" name="Add to" sid="4793536600867361" type="System">
+                    <param id="0" name="Variable">ModificationArgent</param>
+                    <param id="1" name="Value">Score</param>
+                </action>
+                <action id="-9" name="Set value" sid="1295691458802372" type="System">
+                    <param id="0" name="Variable">Start</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="6415279382321068" type="System">
+                    <param id="0" name="Variable">Score</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-25" name="Go to layout (by name)" sid="3042394595017772" type="System">
+                    <param id="0" name="Layout">&quot;Exterieur&quot;</param>
+                </action>
+                <action id="0" name="Play" sid="8193180833158772" type="Audio">
+                    <param id="0" name="Audio file">Bouton_2</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

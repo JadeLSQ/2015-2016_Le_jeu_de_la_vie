@@ -1,0 +1,2040 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2project>
+    <name>Le jeu de la vie</name>
+    <description></description>
+    <version>1.0</version>
+    <author>Cedric, Siqi, Mona</author>
+    <author-email></author-email>
+    <author-website></author-website>
+    <app-id></app-id>
+    <unique-id>3jcj5a55ex201</unique-id>
+    <saved-with-version>21600</saved-with-version>
+    <used-plugins>
+        <plugin author="Scirra" id="AJAX" version="1">AJAX</plugin>
+        <plugin author="Scirra" id="Arr" version="1">Array</plugin>
+        <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
+        <plugin author="Scirra" id="Button" version="1">Button</plugin>
+        <plugin author="Scirra" id="Function" version="1">Function</plugin>
+        <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
+        <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
+        <plugin author="Scirra" id="Particles" version="1">Particles</plugin>
+        <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Text" version="1">Text</plugin>
+        <plugin author="Scirra" id="TextBox" version="1">Text box</plugin>
+        <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
+    </used-plugins>
+    <used-behaviors>
+        <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
+        <behavior author="Scirra" id="EightDir" version="1">8 Direction</behavior>
+        <behavior author="Scirra" id="Flash" version="1">Flash</behavior>
+        <behavior author="Scirra" id="LOS" version="1">Line Of Sight</behavior>
+        <behavior author="Scirra" id="Persist" version="1">Persist</behavior>
+        <behavior author="Scirra" id="Pin" version="1">Pin</behavior>
+        <behavior author="Scirra" id="Sin" version="1">Sine</behavior>
+        <behavior author="Scirra" id="bound" version="1">Bound to layout</behavior>
+        <behavior author="Scirra" id="destroy" version="1">Destroy outside layout</behavior>
+        <behavior author="Scirra" id="scrollto" version="1">Scroll To</behavior>
+        <behavior author="Scirra" id="solid" version="1">Solid</behavior>
+    </used-behaviors>
+    <used-effects />
+    <configurations>
+        <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
+    </configurations>
+    <window-size>
+        <width>854</width>
+        <height>480</height>
+    </window-size>
+    <pixel-rounding>0</pixel-rounding>
+    <preview-effects>1</preview-effects>
+    <first-layout>Intro</first-layout>
+    <use-loader-layout>0</use-loader-layout>
+    <configuration-settings>
+        <prop name="Clear background">No</prop>
+        <prop name="Downscaling">Medium quality</prop>
+        <prop name="Enable WebGL">On</prop>
+        <prop name="Fullscreen in browser">Letterbox scale</prop>
+        <prop name="Fullscreen scaling">High quality</prop>
+        <prop name="Loader style">Construct 2 splash</prop>
+        <prop name="Orientations">Landscape</prop>
+        <prop name="Pause on unfocus">No</prop>
+        <prop name="Physics engine">Box2D asm.js</prop>
+        <prop name="Preload sounds">Yes</prop>
+        <prop name="Preview browser">(default)</prop>
+        <prop name="Sampling">Linear</prop>
+        <prop name="Use high-DPI display">Yes</prop>
+    </configuration-settings>
+    <object-folder>
+        <object-type name="sPerso" sid="4442119132149898">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Vies" sid="2886427037293551" type="number" />
+                <instance-variable name="ViesMax" sid="4262189509635662" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="8Direction" sid="7953870690119809">
+                    <behavior id="EightDir" />
+                </behavior-type>
+                <behavior-type name="ScrollTo" sid="153351390276384">
+                    <behavior id="scrollto" />
+                </behavior-type>
+                <behavior-type name="BoundToLayout" sid="5921221830741176">
+                    <behavior id="bound" />
+                </behavior-type>
+                <behavior-type name="Persist" sid="9646359553443557">
+                    <behavior id="Persist" />
+                </behavior-type>
+                <behavior-type name="Flash" sid="8804614550297123">
+                    <behavior id="Flash" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation-folder name="Marche">
+                    <animation framecount="10" loop="1" name="Haut_Marche" pingpong="1" repeatcount="1" repeatto="0" sid="5078163189492957" speed="45">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.50237" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Annime\PHaut\PHaut - 0.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.50237" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Annime\PHaut\PHaut - 1.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.50237" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Annime\PHaut\PHaut - 2.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.50237" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Annime\PHaut\PHaut - 3.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.50237" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Annime\PHaut\PHaut - 4.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.50237" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Annime\PHaut\PHaut - 5.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.50237" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Annime\PHaut\PHaut - 6.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.50237" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Annime\PHaut\PHaut - 7.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.50237" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Annime\PHaut\PHaut - 8.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.50237" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Annime\PHaut\PHaut - 9.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                    <animation framecount="10" loop="1" name="Droit_Marche" pingpong="1" repeatcount="1" repeatto="0" sid="87287694313916" speed="45">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.502392" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Annime\PDroit\PDroit-_0000_Calque-0-copie-9.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.502392" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Annime\PDroit\PDroit-_0001_Calque-0-copie-8.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.502392" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Annime\PDroit\PDroit-_0002_Calque-0-copie-7.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.502392" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Annime\PDroit\PDroit-_0003_Calque-0-copie-6.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.502392" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Annime\PDroit\PDroit-_0004_Calque-0-copie-5.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.502392" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Annime\PDroit\PDroit-_0005_Calque-0-copie-4.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.502392" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Annime\PDroit\PDroit-_0006_Calque-0-copie-3.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.502392" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Annime\PDroit\PDroit-_0007_Calque-0-copie-2.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.502392" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Annime\PDroit\PDroit-_0008_Calque-0-copie.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.502392" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Annime\PDroit\PDroit-_0009_Calque-0.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                    <animation framecount="10" loop="1" name="Bas_Marche" pingpong="1" repeatcount="1" repeatto="0" sid="6177028432175748" speed="45">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.50237" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Annime\PBas\Mieux\PBas - 0.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.50237" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Annime\PBas\Mieux\PBas - 1.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.50237" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Annime\PBas\Mieux\PBas - 2.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.50237" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Annime\PBas\Mieux\PBas - 3.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.50237" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Annime\PBas\Mieux\PBas - 4.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.50237" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Annime\PBas\Mieux\PBas - 5.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.50237" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Annime\PBas\Mieux\PBas - 6.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.50237" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Annime\PBas\Mieux\PBas - 7.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.50237" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Annime\PBas\Mieux\PBas - 8.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.50237" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Annime\PBas\Mieux\PBas - 9.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                    <animation framecount="10" loop="1" name="Gauche_Marche" pingpong="1" repeatcount="1" repeatto="0" sid="3195763134346134" speed="45">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Annime\pGauche\PDroit-_0000_Calque-0-copie-9.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Annime\pGauche\PDroit-_0001_Calque-0-copie-8.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Annime\pGauche\PDroit-_0002_Calque-0-copie-7.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Annime\pGauche\PDroit-_0003_Calque-0-copie-6.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Annime\pGauche\PDroit-_0004_Calque-0-copie-5.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Annime\pGauche\PDroit-_0005_Calque-0-copie-4.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Annime\pGauche\PDroit-_0006_Calque-0-copie-3.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Annime\pGauche\PDroit-_0007_Calque-0-copie-2.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Annime\pGauche\PDroit-_0008_Calque-0-copie.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Annime\pGauche\PDroit-_0009_Calque-0.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+                <animation-folder name="Fixe">
+                    <animation framecount="1" loop="0" name="Haut_Fixe" pingpong="0" repeatcount="1" repeatto="0" sid="8006629786869096" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.502392" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\PHaut.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                    <animation framecount="1" loop="0" name="Droit_Fixe" pingpong="0" repeatcount="1" repeatto="0" sid="1068681312208015" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.502392" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\PDroit.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                    <animation framecount="1" loop="0" name="Bas_Fixe" pingpong="0" repeatcount="1" repeatto="0" sid="9747612209918424" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.502392" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\PBas.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                    <animation framecount="1" loop="0" name="Gauche_Fixe" pingpong="0" repeatcount="1" repeatto="0" sid="3393151451755908" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.502392" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\PGauche.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+                <animation-folder name="Marche Gun">
+                    <animation framecount="1" loop="1" name="Haut_Marche_Gun" pingpong="0" repeatcount="1" repeatto="0" sid="6186006208867385" speed="10">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.502392" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\PHautFou.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                    <animation framecount="1" loop="1" name="Droit_Marche_Gun" pingpong="0" repeatcount="1" repeatto="0" sid="4837170029785471" speed="10">
+                        <frame duration="1" hotspotX="0.50365" hotspotY="0.502415" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\PDroitFou.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                    <animation framecount="1" loop="1" name="Bas_Marche_Gun" pingpong="0" repeatcount="1" repeatto="0" sid="4485146011513565" speed="10">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.502392" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\PBasFou.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                    <animation framecount="1" loop="1" name="Gauche_Marche_Gun" pingpong="0" repeatcount="1" repeatto="0" sid="8281252231974339" speed="10">
+                        <frame duration="1" hotspotX="0.503597" hotspotY="0.502392" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\PGaucheFou.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+                <animation-folder name="Fixe Gun">
+                    <animation framecount="1" loop="0" name="Haut_Fixe_Gun" pingpong="0" repeatcount="1" repeatto="0" sid="2012932348541774" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.502392" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\PHautFou.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                    <animation framecount="1" loop="0" name="Droit_Fixe_Gun" pingpong="0" repeatcount="1" repeatto="0" sid="232943622802741" speed="5">
+                        <frame duration="1" hotspotX="0.50365" hotspotY="0.502415" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\PDroitFou.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                    <animation framecount="1" loop="0" name="Bas_Fixe_Gun" pingpong="0" repeatcount="1" repeatto="0" sid="5226209565222733" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.502392" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\PBasFou.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                    <animation framecount="1" loop="0" name="Gauche_Fixe_Gun" pingpong="0" repeatcount="1" repeatto="0" sid="9757593347990099" speed="5">
+                        <frame duration="1" hotspotX="0.503597" hotspotY="0.502392" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\PGaucheFou.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+                <animation-folder name="Transforme">
+                    <animation framecount="13" loop="0" name="Transforme_Gun" pingpong="0" repeatcount="1" repeatto="0" sid="2943755085733838" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.502392" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\PBas.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.502392" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\PGauche.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.502392" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\PHaut.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.502392" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\PDroit.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.502392" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\PBasFou.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.502392">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.502392" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\PHautFou.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.502392">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.502392" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\PBasFou.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.503597" hotspotY="0.502392" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\PGaucheFou.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.502392" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\PHautFou.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.50365" hotspotY="0.502415" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\PDroitFou.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.502392" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\PBasFou.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                    <animation framecount="13" loop="0" name="Transforme" pingpong="0" repeatcount="1" repeatto="0" sid="3213013086521247" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.502392" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\PBasFou.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.503597" hotspotY="0.502392" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\PGaucheFou.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.502392" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\PHautFou.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.50365" hotspotY="0.502415" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\PDroitFou.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.502392" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\PBasFou.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.502392">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.502392" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\PHautFou.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.502392">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.502392" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\PBasFou.png">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.502392">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.502392">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.502392">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.502392">
+                            <collision-poly>
+                                <point x="0.285714" y="0.890995" />
+                                <point x="0.75" y="0.890995" />
+                                <point x="0.728571" y="1" />
+                                <point x="0.307143" y="1" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </animation-folder>
+        </object-type>
+        <object-type name="Keyboard" sid="9956870414474224">
+            <plugin id="Keyboard" />
+        </object-type>
+        <object-type name="tHitBox" sid="4202165912002358">
+            <plugin id="TiledBg" />
+            <behaviors>
+                <behavior-type name="Solid" sid="1509982468368063">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <texture />
+        </object-type>
+        <object-type name="sPorteMagasin" sid="6357498727398243">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="3" loop="0" name="Ouverture" pingpong="0" repeatcount="1" repeatto="0" sid="1319588498192456" speed="10">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+                <animation framecount="3" loop="0" name="Fermeture" pingpong="0" repeatcount="1" repeatto="0" sid="4836227656817638" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="sHitBoxPerso" sid="1741883720788567">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Pin" sid="7448458464185672">
+                    <behavior id="Pin" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="4259061937687292" speed="5">
+                    <frame duration="1" hotspotX="0.516667" hotspotY="0.488372">
+                        <collision-poly>
+                            <point x="0" y="0.0872093" />
+                            <point x="0.5" y="0" />
+                            <point x="1" y="0.0813954" />
+                            <point x="0.970833" y="0.537791" />
+                            <point x="0.775" y="1" />
+                            <point x="0.291667" y="1" />
+                            <point x="0.0520833" y="0.514535" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="sAmi" sid="1282421647398212">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Ami" sid="6034923983669894" type="boolean" />
+                <instance-variable name="oldX" sid="1787870310476769" type="number" />
+                <instance-variable name="oldY" sid="2354695721297964" type="number" />
+                <instance-variable name="Vies" sid="741039610695022" type="number" />
+                <instance-variable name="VecteurX" sid="4576145300100308" type="number" />
+                <instance-variable name="VecteurY" sid="2985019204814664" type="number" />
+                <instance-variable comment="Décompte avant le prochain vecteur random" name="Decompte" sid="9796995555024714" type="number" />
+                <instance-variable name="AnimationAmi" sid="5644541766703221" type="string" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="8Direction" sid="911866094987186">
+                    <behavior id="EightDir" />
+                </behavior-type>
+                <behavior-type name="Solid" sid="9195413839662985">
+                    <behavior id="solid" />
+                </behavior-type>
+                <behavior-type name="Pin" sid="5907920693330986">
+                    <behavior id="Pin" />
+                </behavior-type>
+                <behavior-type name="DestroyOutsideLayout" sid="6167559544039378">
+                    <behavior id="destroy" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="1" name="Haut" pingpong="0" repeatcount="1" repeatto="0" sid="3410343641517308" speed="5">
+                    <frame duration="1" hotspotX="0.496855" hotspotY="0.5" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\AHaut.png">
+                        <collision-poly>
+                            <point x="0.243421" y="0.816964" />
+                            <point x="0.802632" y="0.8125" />
+                            <point x="0.802632" y="1" />
+                            <point x="0.243421" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="1" name="Droit" pingpong="0" repeatcount="1" repeatto="0" sid="7486307945273566" speed="5">
+                    <frame duration="1" hotspotX="0.496644" hotspotY="0.497758" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\ADroite.png">
+                        <collision-poly>
+                            <point x="0.243421" y="0.816964" />
+                            <point x="0.802632" y="0.8125" />
+                            <point x="0.802632" y="1" />
+                            <point x="0.243421" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="1" name="Bas" pingpong="0" repeatcount="1" repeatto="0" sid="2634094796730025" speed="5">
+                    <frame duration="1" hotspotX="0.496894" hotspotY="0.5" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\ABas.png">
+                        <collision-poly>
+                            <point x="0.243421" y="0.816964" />
+                            <point x="0.802632" y="0.8125" />
+                            <point x="0.802632" y="1" />
+                            <point x="0.243421" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="1" name="Gauche" pingpong="0" repeatcount="1" repeatto="0" sid="3724098087728528" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\AGauche.png">
+                        <collision-poly>
+                            <point x="0.243421" y="0.816964" />
+                            <point x="0.802632" y="0.8125" />
+                            <point x="0.802632" y="1" />
+                            <point x="0.243421" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="Ami_Haut" pingpong="0" repeatcount="1" repeatto="0" sid="8230400654515133" speed="5">
+                    <frame duration="1" hotspotX="0.496855" hotspotY="0.5" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\AAHaut.png">
+                        <collision-poly>
+                            <point x="0.138365" y="0.0990991" />
+                            <point x="0.496855" y="0.0495495" />
+                            <point x="0.830189" y="0.121622" />
+                            <point x="0.899371" y="0.5" />
+                            <point x="0.773585" y="0.837838" />
+                            <point x="0.496855" y="0.995495" />
+                            <point x="0.264151" y="0.810811" />
+                            <point x="0.106918" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="1" name="Ami_Droit" pingpong="0" repeatcount="1" repeatto="0" sid="5807294989681866" speed="5">
+                    <frame duration="1" hotspotX="0.496855" hotspotY="0.5" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\AADroit.png">
+                        <collision-poly>
+                            <point x="0.243421" y="0.816964" />
+                            <point x="0.802632" y="0.8125" />
+                            <point x="0.802632" y="1" />
+                            <point x="0.243421" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="1" name="Ami_Bas" pingpong="0" repeatcount="1" repeatto="0" sid="2929991668119017" speed="5">
+                    <frame duration="1" hotspotX="0.496855" hotspotY="0.5" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\AABas.png">
+                        <collision-poly>
+                            <point x="0.243421" y="0.816964" />
+                            <point x="0.802632" y="0.8125" />
+                            <point x="0.802632" y="1" />
+                            <point x="0.243421" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="1" name="Ami_Gauche" pingpong="0" repeatcount="1" repeatto="0" sid="3669798791158749" speed="5">
+                    <frame duration="1" hotspotX="0.503145" hotspotY="0.5" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\AAGauche.png">
+                        <collision-poly>
+                            <point x="0.243421" y="0.816964" />
+                            <point x="0.802632" y="0.8125" />
+                            <point x="0.802632" y="1" />
+                            <point x="0.243421" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type global="1" name="lTouchesActuelles" sid="252821733388624">
+            <plugin id="Arr" />
+        </object-type>
+        <object-type global="1" name="lTouchesPossibles" sid="112644388493073">
+            <plugin id="Arr" />
+        </object-type>
+        <object-type name="AJAX" sid="2762671500717684">
+            <plugin id="AJAX" />
+        </object-type>
+        <object-type name="txtDebug" sid="8697137143331088">
+            <plugin id="TextBox" />
+        </object-type>
+        <object-type name="sPorteTravail_1" sid="3077644544885793">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Decompte" sid="2916200747513496" type="number" />
+            </instance-variables>
+            <animation-folder>
+                <animation framecount="3" loop="0" name="Ouverture" pingpong="0" repeatcount="1" repeatto="0" sid="1213398258107642" speed="10">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+                <animation framecount="3" loop="0" name="Fermeture" pingpong="0" repeatcount="1" repeatto="0" sid="6332219240271871" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Mouse" sid="3393647066670169">
+            <plugin id="Mouse" />
+        </object-type>
+        <object-type name="sExclamFeedBack" sid="9996626918598595">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Pin" sid="7122555270401966">
+                    <behavior id="Pin" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="8" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1626372674274048" speed="20">
+                    <frame duration="1" hotspotX="0.888889" hotspotY="-5.6" />
+                    <frame duration="1" hotspotX="0.888889" hotspotY="-1.15217" />
+                    <frame duration="1" hotspotX="0.888889" hotspotY="-0.253165" />
+                    <frame duration="1" hotspotX="0.888889" hotspotY="0.108108" />
+                    <frame duration="1" hotspotX="0.888889" hotspotY="0.307692" />
+                    <frame duration="1" hotspotX="0.888889" hotspotY="0.431034" />
+                    <frame duration="10" hotspotX="0.888889" hotspotY="0.535354" />
+                    <frame duration="1" hotspotX="0.888889" hotspotY="0.535354" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="sHeyFeedBack" sid="3731727275074988">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Pin" sid="198832329448592">
+                    <behavior id="Pin" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="18" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="4291009429390403" speed="40">
+                    <frame duration="1" hotspotX="0.571429" hotspotY="0.5" original-source="C:\Users\Cédric\Desktop\Animation\35.png" />
+                    <frame duration="1" hotspotX="0.52381" hotspotY="0.5" original-source="C:\Users\Cédric\Desktop\Animation\36.png" />
+                    <frame duration="1" hotspotX="0.520548" hotspotY="0.5" original-source="C:\Users\Cédric\Desktop\Animation\37.png" />
+                    <frame duration="1" hotspotX="0.516129" hotspotY="0.5" original-source="C:\Users\Cédric\Desktop\Animation\38.png" />
+                    <frame duration="1" hotspotX="0.504425" hotspotY="0.5" original-source="C:\Users\Cédric\Desktop\Animation\39.png" />
+                    <frame duration="1" hotspotX="0.503759" hotspotY="0.504132" original-source="C:\Users\Cédric\Desktop\Animation\40.png" />
+                    <frame duration="1" hotspotX="0.503268" hotspotY="0.503597" original-source="C:\Users\Cédric\Desktop\Animation\41.png" />
+                    <frame duration="1" hotspotX="0.505814" hotspotY="0.496815" original-source="C:\Users\Cédric\Desktop\Animation\42.png" />
+                    <frame duration="1" hotspotX="0.505319" hotspotY="0.502924" original-source="C:\Users\Cédric\Desktop\Animation\43.png" />
+                    <frame duration="1" hotspotX="0.507389" hotspotY="0.508197" original-source="C:\Users\Cédric\Desktop\Animation\44.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.507614" original-source="C:\Users\Cédric\Desktop\Animation\45.png" />
+                    <frame duration="1" hotspotX="0.506438" hotspotY="0.5" original-source="C:\Users\Cédric\Desktop\Animation\46.png" />
+                    <frame duration="1" hotspotX="0.510121" hotspotY="0.495536" original-source="C:\Users\Cédric\Desktop\Animation\47.png" />
+                    <frame duration="1" hotspotX="0.496324" hotspotY="0.506073" original-source="C:\Users\Cédric\Desktop\Animation\48.png" />
+                    <frame duration="1" hotspotX="0.503546" hotspotY="0.5" original-source="C:\Users\Cédric\Desktop\Animation\49.png" />
+                    <frame duration="1" hotspotX="0.501718" hotspotY="0.5" original-source="C:\Users\Cédric\Desktop\Animation\50.png" />
+                    <frame duration="40" hotspotX="0.501718" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.501718" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="sGerbeSang" sid="9249410320848205">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Mort" sid="8310611886529652" type="number" />
+            </instance-variables>
+            <animation-folder>
+                <animation framecount="14" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="2370030020533477" speed="30">
+                    <frame duration="1" hotspotX="0.454545" hotspotY="-0.527027" />
+                    <frame duration="1" hotspotX="0.439024" hotspotY="0.0111732" />
+                    <frame duration="1" hotspotX="0.448276" hotspotY="0.445087" />
+                    <frame duration="1" hotspotX="0.470199" hotspotY="0.713004" />
+                    <frame duration="1" hotspotX="0.507937" hotspotY="0.849594" />
+                    <frame duration="1" hotspotX="0.515152" hotspotY="0.899598" />
+                    <frame duration="1" hotspotX="0.501945" hotspotY="0.885932" />
+                    <frame duration="1" hotspotX="0.518248" hotspotY="0.836431" />
+                    <frame duration="1" hotspotX="0.510067" hotspotY="0.763251" />
+                    <frame duration="1" hotspotX="0.521084" hotspotY="0.608392" />
+                    <frame duration="1" hotspotX="0.52514" hotspotY="0.715847" />
+                    <frame duration="1" hotspotX="0.514286" hotspotY="0.246753" />
+                    <frame duration="1" hotspotX="0.504902" hotspotY="-0.139073" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.503311" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="sBulletNous" sid="5768317435157176">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="4906813337938586">
+                    <behavior id="Bullet" />
+                </behavior-type>
+                <behavior-type name="DestroyOutsideLayout" sid="4467582039741606">
+                    <behavior id="destroy" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="6" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="479132013541071" speed="20">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.375" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.625" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.875" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.625" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.375" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.125" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="sExplosion" sid="4153578083780283">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="14" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3618926062961976" speed="70">
+                    <frame duration="1" hotspotX="0.53125" hotspotY="0.117647" />
+                    <frame duration="1" hotspotX="0.53125" hotspotY="0.347826" />
+                    <frame duration="1" hotspotX="0.53125" hotspotY="0.423077" />
+                    <frame duration="1" hotspotX="0.535714" hotspotY="0.482759" />
+                    <frame duration="1" hotspotX="0.535714" hotspotY="0.516129" />
+                    <frame duration="1" hotspotX="0.535714" hotspotY="0.516129" />
+                    <frame duration="1" hotspotX="0.535714" hotspotY="0.533333" />
+                    <frame duration="1" hotspotX="0.538462" hotspotY="0.533333" />
+                    <frame duration="1" hotspotX="0.541667" hotspotY="0.551724" />
+                    <frame duration="1" hotspotX="0.55" hotspotY="0.592593" />
+                    <frame duration="1" hotspotX="0.5625" hotspotY="0.75" />
+                    <frame duration="1" hotspotX="0.642857" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.666667" hotspotY="1.25" />
+                    <frame duration="1" hotspotX="0.6" hotspotY="1.75" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="pImpactMur" sid="3260047695850984">
+            <plugin id="Particles" />
+            <texture />
+        </object-type>
+        <object-type name="tCoins" sid="966023870875332">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="sObjetUtiliseCroissant" sid="3425900263332427">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Gun" pingpong="0" repeatcount="1" repeatto="0" sid="6432999434229706" speed="5">
+                    <frame duration="1" hotspotX="1.70833" hotspotY="0.458333" original-source="D:\Construct 2\Le jeu de la vie\Ressources\Cedric\Bouton_Pistolet.png">
+                        <collision-poly>
+                            <point x="1" y="0.506944" />
+                            <point x="1" y="1" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                            <point x="0" y="0.506944" />
+                            <point x="0" y="0" />
+                            <point x="1" y="0" />
+                            <point x="1" y="0" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="Croissant" pingpong="0" repeatcount="1" repeatto="0" sid="280794218299895" speed="5">
+                    <frame duration="1" hotspotX="0.988701" hotspotY="0.480226" original-source="D:\Construct 2\Le jeu de la vie\Ressources\Cedric\Bouton_Croissant.png">
+                        <collision-poly>
+                            <point x="0.380334" y="0.160327" />
+                            <point x="1" y="0.0222188" />
+                            <point x="1" y="0.160327" />
+                            <point x="1" y="0.5" />
+                            <point x="1" y="0.839673" />
+                            <point x="1" y="0.977782" />
+                            <point x="0.380334" y="0.839673" />
+                            <point x="0.0396339" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="sVendeur" sid="5445850170655015">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Sine" sid="7706056321141666">
+                    <behavior id="Sin" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Marche_Droite" pingpong="0" repeatcount="1" repeatto="0" sid="6580176175890921" speed="5">
+                    <frame duration="1" hotspotX="0.503145" hotspotY="0.5" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\ADroite.png" />
+                </animation>
+                <animation framecount="1" loop="0" name="Marche_Gauche" pingpong="0" repeatcount="1" repeatto="0" sid="4116193618810189" speed="5">
+                    <frame duration="1" hotspotX="0.503145" hotspotY="0.5" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\AGauche.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="sEtale" sid="4948686851014368">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3997806438079225" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="bAcheter" sid="8418631194833162">
+            <plugin id="Button" />
+        </object-type>
+        <object-type name="bSortir" sid="6789841691834953">
+            <plugin id="Button" />
+            <instance-variables>
+                <instance-variable name="Focus" sid="3504716133494195" type="boolean" />
+            </instance-variables>
+        </object-type>
+        <object-type name="Audio" sid="7326883521167376">
+            <plugin id="Audio" />
+        </object-type>
+        <object-type name="bStart" sid="6450706234999223">
+            <plugin id="Button" />
+        </object-type>
+        <object-type name="kEntreeClavier" sid="1667815074308127">
+            <plugin id="TextBox" />
+        </object-type>
+        <object-type name="tCalcul" sid="6216865701810745">
+            <plugin id="Text" />
+            <instance-variables>
+                <instance-variable name="Calcule" sid="5515330730843194" type="string" />
+            </instance-variables>
+        </object-type>
+        <object-type name="bValide" sid="6992607451657931">
+            <plugin id="Button" />
+            <instance-variables>
+                <instance-variable name="Visible" sid="8396011373484605" type="boolean" />
+            </instance-variables>
+        </object-type>
+        <object-type name="tConsignes" sid="3176201585765688">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="tScore" sid="7698271936971867">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="bClic" sid="9682020950049492">
+            <plugin id="Button" />
+        </object-type>
+        <object-type name="tbFond_Travail_1" sid="7938576313604017">
+            <plugin id="TiledBg" />
+            <texture original-source="D:\Construct 2\Le jeu de la vie\Ressources\red marble raccord.png" />
+        </object-type>
+        <object-type name="tbTableau_Travail_1" sid="7856096232052987">
+            <plugin id="TiledBg" />
+            <texture original-source="D:\Construct 2\Le jeu de la vie\Ressources\tableau.png" />
+        </object-type>
+        <object-type name="sTableau_Travail_1" sid="6921425064146853">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1724287581280136" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Construct 2\Le jeu de la vie\Ressources\tableau.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="tbFond_Travail_2" sid="9368546166963506">
+            <plugin id="TiledBg" />
+            <texture />
+        </object-type>
+        <object-type name="sFond_Travail_2" sid="6520645295731995">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3081394746233451" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Construct 2\Le jeu de la vie\Ressources\patine acier poli.jpg" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="sPorteTravail_2" sid="8021850591865847">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Decompte" sid="6791027059883403" type="number" />
+            </instance-variables>
+            <animation-folder>
+                <animation framecount="3" loop="0" name="Ouverture" pingpong="0" repeatcount="1" repeatto="0" sid="5121286584013946" speed="10">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+                <animation framecount="3" loop="0" name="Fermeture" pingpong="0" repeatcount="1" repeatto="0" sid="4541588261796807" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="tPrixObjet" sid="3537262728186604">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="sMaisons" sid="8554978968935994">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Maison" pingpong="0" repeatcount="1" repeatto="0" sid="9791552679199275" speed="5">
+                    <frame duration="1" hotspotX="0.50108" hotspotY="0.501205" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Maison1.png">
+                        <collision-poly>
+                            <point x="0.211663" y="0.236145" />
+                            <point x="0.49892" y="0.00722892" />
+                            <point x="0.764579" y="0.26265" />
+                            <point x="0.816414" y="0.498795" />
+                            <point x="0.803456" y="0.780723" />
+                            <point x="0.49892" y="0.99759" />
+                            <point x="0.12959" y="0.855422" />
+                            <point x="0.133909" y="0.498795" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="Croissanterie" pingpong="0" repeatcount="1" repeatto="0" sid="2274247645883245" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Maisons\Croissanterie_Mieux.png">
+                        <collision-poly>
+                            <point x="0.17191" y="0.27518" />
+                            <point x="0.5" y="0.125899" />
+                            <point x="0.788764" y="0.338129" />
+                            <point x="0.965169" y="0.5" />
+                            <point x="0.960674" y="0.93705" />
+                            <point x="0.5" y="0.996403" />
+                            <point x="0.110112" y="0.823741" />
+                            <point x="0.0337079" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="Travail" pingpong="0" repeatcount="1" repeatto="0" sid="5513378011418155" speed="5">
+                    <frame duration="1" hotspotX="0.501529" hotspotY="0.501035" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Maisons\Travail_Mieux.png">
+                        <collision-poly>
+                            <point x="0.0334347" y="0.0226804" />
+                            <point x="0.49848" y="0.0103093" />
+                            <point x="0.966565" y="0.0226804" />
+                            <point x="0.984802" y="0.498969" />
+                            <point x="0.963526" y="0.975258" />
+                            <point x="0.0212766" y="0.985567" />
+                            <point x="0.0121581" y="0.498969" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="sToitsMaisons" sid="5081552002862303">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Maison" pingpong="0" repeatcount="1" repeatto="0" sid="6147791740703527" speed="5">
+                    <frame duration="1" hotspotX="0.503254" hotspotY="0.503632" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Maisons\Toits\Maison1.png">
+                        <collision-poly>
+                            <point x="0.99784" y="0.00471698" />
+                            <point x="0.99784" y="1" />
+                            <point x="0.00215983" y="1" />
+                            <point x="0.00215983" y="0.00471698" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="Croissanterie" pingpong="0" repeatcount="1" repeatto="0" sid="6729418098579459" speed="5">
+                    <frame duration="1" hotspotX="0.498879" hotspotY="0.832335" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Maisons\Toits\Croissanterie_Mieux.png">
+                        <collision-poly>
+                            <point x="0.99776" y="0.00819611" />
+                            <point x="0.99776" y="1" />
+                            <point x="0.00223964" y="1" />
+                            <point x="0.00223964" y="0.00819611" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="Travail" pingpong="0" repeatcount="1" repeatto="0" sid="1465256461723019" speed="5">
+                    <frame duration="1" hotspotX="0.49848" hotspotY="0.903346" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Maisons\Toits\Travail.png">
+                        <collision-poly>
+                            <point x="0.990955" y="0.022467" />
+                            <point x="0.990955" y="1" />
+                            <point x="0.00904508" y="1" />
+                            <point x="0.00904508" y="0.022467" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="tbFondMagasin" sid="5663775328736395">
+            <plugin id="TiledBg" />
+            <texture original-source="D:\Construct 2\Le jeu de la vie\Ressources\Cedric\s2.qwant.com.png" />
+        </object-type>
+        <object-type name="tbSortir" sid="4124543752843224">
+            <plugin id="TiledBg" />
+            <texture />
+        </object-type>
+        <object-type name="sCroissant" sid="7896692130153823">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="2741328545598715">
+                    <behavior id="Bullet" />
+                </behavior-type>
+                <behavior-type name="DestroyOutsideLayout" sid="1589372817398489">
+                    <behavior id="destroy" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="5731528497805498" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Objets\Crossant.png">
+                        <collision-poly>
+                            <point x="0.216667" y="0.0958334" />
+                            <point x="0.733334" y="0.0291667" />
+                            <point x="0.970833" y="0.373574" />
+                            <point x="0.555996" y="0.448799" />
+                            <point x="0.651634" y="0.970833" />
+                            <point x="0.1625" y="0.879167" />
+                            <point x="0.0208333" y="0.464434" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="tFond" sid="3807258576557408">
+            <plugin id="TiledBg" />
+            <texture original-source="D:\Construct 2\LPC Base Assets\tiles\tout.png" />
+        </object-type>
+        <object-type name="sSortie" sid="7602127337316354">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7238162552683864" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Construct 2\Le jeu de la vie\Ressources\Cedric\Sortie.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="sBulletEnnemi" sid="6321952562672323">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="8654605204960106">
+                    <behavior id="Bullet" />
+                </behavior-type>
+                <behavior-type name="DestroyOutsideLayout" sid="7322220415631531">
+                    <behavior id="destroy" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="6" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1280799288497603" speed="20">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.375" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.625" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.875" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.625" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.375" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.125" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="sObjetAchat" sid="4074981072077529">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Prix" sid="7509432211414388" type="number" />
+            </instance-variables>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Croissant" pingpong="0" repeatcount="1" repeatto="0" sid="8376353717256502" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="1" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\PersoetObj\Crossant.png">
+                        <collision-poly>
+                            <point x="1" y="0" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                            <point x="0" y="0" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="Gun" pingpong="0" repeatcount="1" repeatto="0" sid="7930935675209403" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="1" original-source="D:\Construct 2\Le jeu de la vie\Ressources\Cedric\Cartouche.png">
+                        <collision-poly>
+                            <point x="0.209677" y="0" />
+                            <point x="0.870968" y="0" />
+                            <point x="0.870968" y="1" />
+                            <point x="0.209677" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="Ruby" pingpong="0" repeatcount="1" repeatto="0" sid="5512922574324096" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="1" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\PersoetObj\ruby.png">
+                        <collision-poly>
+                            <point x="1" y="0" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                            <point x="0" y="0" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="tNbCroissants" sid="2640506751596728">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="tNbBalles" sid="1850849832949414">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="tDialogue" sid="468774270676545">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="sSuivant" sid="6642292996089175">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Flash" sid="1014542243068068">
+                    <behavior id="Flash" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1680652249408211" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="sBossPortrait" sid="5065178855560889">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8439721381445912" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.503448" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Boss.png">
+                        <collision-poly>
+                            <point x="0.208222" y="0.263362" />
+                            <point x="0.30344" y="0.129023" />
+                            <point x="0.517682" y="0.0191093" />
+                            <point x="1" y="1" />
+                            <point x="0.410561" y="1" />
+                            <point x="0.30344" y="1" />
+                            <point x="0.029687" y="1" />
+                            <point x="0.107052" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="sPersoPortrait" sid="371057261318329">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="2573215419578942" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.768116" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\PDroit.png">
+                        <collision-poly>
+                            <point x="0.157143" y="0.15942" />
+                            <point x="0.5" y="0.00724638" />
+                            <point x="0.842857" y="0.15942" />
+                            <point x="0.914286" y="0.76087" />
+                            <point x="0.714286" y="1" />
+                            <point x="0.5" y="1" />
+                            <point x="0.307143" y="1" />
+                            <point x="0.0857143" y="0.76087" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="tQuelquonque" sid="7440146679497458">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="sBoss" sid="5515711915248421">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Vies" sid="6134898257097034" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Flash" sid="292923241596034">
+                    <behavior id="Flash" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="2970086073669569" speed="5">
+                    <frame duration="1" hotspotX="0.50289" hotspotY="0.501961" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\Boss.png">
+                        <collision-poly>
+                            <point x="0.0520231" y="0.184313" />
+                            <point x="0.439307" y="0" />
+                            <point x="0.872832" y="0.0352939" />
+                            <point x="1" y="0.447059" />
+                            <point x="0.514451" y="0.6" />
+                            <point x="0.369942" y="1" />
+                            <point x="0.0924856" y="1" />
+                            <point x="0" y="0.631372" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="bExploiterAmi" sid="6609666118907365">
+            <plugin id="Button" />
+        </object-type>
+        <object-type name="sHitBoxAmis" sid="7396313246372197">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable comment="Identifiant de l&apos;ami concerné par cette hitbox" name="PersonneConcerne" sid="7960899917444141" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Pin" sid="2668514450934319">
+                    <behavior id="Pin" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="410776885458723" speed="5">
+                    <frame duration="1" hotspotX="0.516667" hotspotY="0.488372">
+                        <collision-poly>
+                            <point x="0" y="0" />
+                            <point x="1" y="0" />
+                            <point x="0.804167" y="1" />
+                            <point x="0.245833" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="sGarde" sid="8482966678477421">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Vies" sid="6201982367714809" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="LineOfSight" sid="7480840969642157">
+                    <behavior id="LOS" />
+                </behavior-type>
+                <behavior-type name="Flash" sid="2926271554054065">
+                    <behavior id="Flash" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="6040379009089852" speed="5">
+                    <frame duration="1" hotspotX="0.536913" hotspotY="0.5" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\EDroit.png">
+                        <collision-poly>
+                            <point x="0.233471" y="0.106667" />
+                            <point x="0.890866" y="0.0977778" />
+                            <point x="1" y="0.455885" />
+                            <point x="0.648823" y="1" />
+                            <point x="0.363544" y="1" />
+                            <point x="0.0213423" y="0.384956" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="sEnnemi" sid="6375186944249278">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="nbPoints" sid="2089517135458268" type="number" />
+                <instance-variable name="X_0" sid="9496012959815436" type="number" />
+                <instance-variable name="Y_0" sid="5979925734393605" type="number" />
+                <instance-variable name="X_1" sid="6652621984717748" type="number" />
+                <instance-variable name="Y_1" sid="18026751545187" type="number" />
+                <instance-variable name="X_2" sid="3286969598482149" type="number" />
+                <instance-variable name="Y_2" sid="6218083852866333" type="number" />
+                <instance-variable name="X_3" sid="6104801843495788" type="number" />
+                <instance-variable name="Y_3" sid="7447315492646652" type="number" />
+                <instance-variable name="PointActuel" sid="1764146460419197" type="number" />
+                <instance-variable name="oldX" sid="9877955188064204" type="number" />
+                <instance-variable name="oldY" sid="1101956057085004" type="number" />
+                <instance-variable name="Vies" sid="1261515995769842" type="number" />
+                <instance-variable comment="-1=chemin avec un 3, 0=chemin, 1=exclamation, 2=en joue(nous parle), 3=tire, 4=nous poursuit" name="Stress" sid="1768004319169382" type="number" />
+                <instance-variable comment="Quand on attend pour presser la détente" name="Decompte" sid="6343595239354003" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="8Direction" sid="7976768087764709">
+                    <behavior id="EightDir" />
+                </behavior-type>
+                <behavior-type name="LineOfSight" sid="6919331414536055">
+                    <behavior id="LOS" />
+                </behavior-type>
+                <behavior-type name="Persist" sid="281601947973676">
+                    <behavior id="Persist" />
+                </behavior-type>
+                <behavior-type name="Flash" sid="1805056737657818">
+                    <behavior id="Flash" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Bas_Marche" pingpong="0" repeatcount="1" repeatto="0" sid="9520467365208969" speed="5">
+                    <frame duration="1" hotspotX="0.503145" hotspotY="0.5" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\EBas.png">
+                        <collision-poly>
+                            <point x="0.0689853" y="0" />
+                            <point x="0.836399" y="0" />
+                            <point x="1" y="0.347944" />
+                            <point x="0.836399" y="1" />
+                            <point x="0.184097" y="1" />
+                            <point x="0" y="0.347944" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="Haut_Marche" pingpong="0" repeatcount="1" repeatto="0" sid="8078979498630845" speed="5">
+                    <frame duration="1" hotspotX="0.509434" hotspotY="0.5" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\EHaut.png">
+                        <collision-poly>
+                            <point x="0.117024" y="0" />
+                            <point x="0.255158" y="0" />
+                            <point x="0.493056" y="0" />
+                            <point x="0.94583" y="0.174613" />
+                            <point x="0.738628" y="0.78343" />
+                            <point x="0.255158" y="0.984454" />
+                            <point x="0.101675" y="0.542201" />
+                            <point x="0" y="0.174613" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="Droit_Marche" pingpong="0" repeatcount="1" repeatto="0" sid="5457141435282733" speed="5">
+                    <frame duration="1" hotspotX="0.536913" hotspotY="0.504505" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\EDroit.png">
+                        <collision-poly>
+                            <point x="0.455744" y="0" />
+                            <point x="0.61763" y="0" />
+                            <point x="0.796559" y="0" />
+                            <point x="1" y="0.465357" />
+                            <point x="0.753956" y="1" />
+                            <point x="0.61763" y="1" />
+                            <point x="0.438702" y="1" />
+                            <point x="0.0893654" y="0.465357" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="Gauche_Marche" pingpong="0" repeatcount="1" repeatto="0" sid="5278822448401069" speed="5">
+                    <frame duration="1" hotspotX="0.529801" hotspotY="0.5" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Propre\EGauche.png">
+                        <collision-poly>
+                            <point x="0.0205755" y="0.00446429" />
+                            <point x="0.501993" y="0.00446429" />
+                            <point x="0.894259" y="0.01663" />
+                            <point x="0.94775" y="0.514669" />
+                            <point x="0.689211" y="0.8882" />
+                            <point x="0.501993" y="0.995536" />
+                            <point x="0.189962" y="0.969401" />
+                            <point x="0" y="0.514669" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="sHitBoxEnnemi" sid="4882678321288068">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable comment="Identifiant de l&apos;ami concerné par cette hitbox" name="PersonneConcerne" sid="9085300218315171" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Pin" sid="8948178570079744">
+                    <behavior id="Pin" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8050189434315" speed="5">
+                    <frame duration="1" hotspotX="0.516667" hotspotY="0.488372">
+                        <collision-poly>
+                            <point x="0.0294122" y="0.0181818" />
+                            <point x="0.970588" y="0.0181818" />
+                            <point x="0.970588" y="0.981818" />
+                            <point x="0.0294122" y="0.981818" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="sHUD_d" sid="6848717152707047">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Affiche" pingpong="0" repeatcount="1" repeatto="0" sid="3400567275046992" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Construct 2\Le jeu de la vie\Ressources\Cedric\HUD d2.png">
+                        <collision-poly>
+                            <point x="1" y="0.452" />
+                            <point x="0.815" y="0.82" />
+                            <point x="0.466667" y="0.948" />
+                            <point x="0" y="1" />
+                            <point x="0" y="0" />
+                            <point x="1" y="0" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="Masque" pingpong="0" repeatcount="1" repeatto="0" sid="439471261606812" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="1.27273" original-source="D:\Construct 2\Le jeu de la vie\Ressources\Cedric\HUD d2.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="tHUD_d" sid="6640655427941532">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="tbVie" sid="7168292608938345">
+            <plugin id="TiledBg" />
+            <texture original-source="C:\Users\Cédric\Desktop\heart_2.gif" />
+        </object-type>
+        <object-type name="tbHUD_G" sid="7063450417620179">
+            <plugin id="TiledBg" />
+            <texture />
+        </object-type>
+        <object-type name="tDette" sid="8874277709862925">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Fonction" sid="1574422300485533">
+            <plugin id="Function" />
+        </object-type>
+        <object-type name="tAlert" sid="9862156415787361">
+            <plugin id="TiledBg" />
+            <texture />
+        </object-type>
+        <object-type name="tFoisMagasin" sid="9413722811644416">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="tNomDialogue" sid="7804745494140063">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="sFondDialogue" sid="7862804466027398">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="6236076953842319" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="-2.93824" original-source="D:\Construct 2\Le jeu de la vie\Ressources\Cedric\FondDialogue.png">
+                        <collision-poly>
+                            <point x="1" y="0" />
+                            <point x="0.5" y="1" />
+                            <point x="0" y="0" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="sFin1" sid="6266905076610041">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="578375490046872" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="-0.251868" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Nouveau dossier\7ad6b811a27315ee54a28e41ceb5c75f_large.jpeg" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="sFin2" sid="5166009060895701">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3561878634257783" speed="5">
+                    <frame duration="1" hotspotX="-0.327389" hotspotY="-3.05747" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Nouveau dossier\Ganier.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="sNuagesFin" sid="1191603970180162">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="6331503426006103" speed="5">
+                    <frame duration="1" hotspotX="-0.0414566" hotspotY="0" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Nouveau dossier\o-NUAGES-facebook.jpg" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="sMortFin" sid="7857972467749601">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Sine" sid="7516636608074541">
+                    <behavior id="Sin" />
+                </behavior-type>
+                <behavior-type name="Sine2" sid="4744555251919651">
+                    <behavior id="Sin" />
+                </behavior-type>
+                <behavior-type name="Sine3" sid="7340666756952668">
+                    <behavior id="Sin" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3565684608618087" speed="5">
+                    <frame duration="1" hotspotX="0.50625" hotspotY="0.504717" original-source="D:\Construct 2\Le jeu de la vie\Ressources\mona\Nouveau dossier\mort.png">
+                        <collision-poly>
+                            <point x="0.19375" y="0.117925" />
+                            <point x="0.5" y="0.00943396" />
+                            <point x="0.81875" y="0.113208" />
+                            <point x="0.94375" y="0.5" />
+                            <point x="0.81875" y="0.891509" />
+                            <point x="0.5" y="0.990566" />
+                            <point x="0.1875" y="0.891509" />
+                            <point x="0.11875" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="sObjetUtiliseGun" sid="4975444596803125">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Gun" pingpong="0" repeatcount="1" repeatto="0" sid="143031307357105" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0.480226" original-source="D:\Construct 2\Le jeu de la vie\Ressources\Cedric\Bouton_Pistolet.png">
+                        <collision-poly>
+                            <point x="0.960367" y="0.5" />
+                            <point x="0.619667" y="0.839673" />
+                            <point x="0" y="0.977782" />
+                            <point x="0" y="0.839673" />
+                            <point x="0" y="0.5" />
+                            <point x="0" y="0.160327" />
+                            <point x="0" y="0.0222188" />
+                            <point x="0.619667" y="0.160327" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="Croissant" pingpong="0" repeatcount="1" repeatto="0" sid="3555549528770837" speed="5">
+                    <frame duration="1" hotspotX="-0.722222" hotspotY="0.458333" original-source="D:\Construct 2\Le jeu de la vie\Ressources\Cedric\Bouton_Croissant.png">
+                        <collision-poly>
+                            <point x="0" y="0" />
+                            <point x="0" y="0" />
+                            <point x="1" y="0" />
+                            <point x="1" y="0.506944" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                            <point x="0" y="1" />
+                            <point x="0" y="0.506944" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="sCamera" sid="8663217603527853">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="ScrollTo" sid="8016308789669327">
+                    <behavior id="scrollto" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="4768221717497215" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.375" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Gospers_glider_gun" sid="2646984379048741">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="30" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1475728230771096" speed="15">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.51497" />
+                    <frame duration="1" hotspotX="0.510549" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.570755" hotspotY="0.605634" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.570755" hotspotY="0.585034" />
+                    <frame duration="1" hotspotX="0.557604" hotspotY="0.585034" />
+                    <frame duration="1" hotspotX="0.557604" hotspotY="0.585034" />
+                    <frame duration="1" hotspotX="0.557604" hotspotY="0.565789" />
+                    <frame duration="1" hotspotX="0.557604" hotspotY="0.565789" />
+                    <frame duration="1" hotspotX="0.545045" hotspotY="0.565789" />
+                    <frame duration="1" hotspotX="0.545045" hotspotY="0.565789" />
+                    <frame duration="1" hotspotX="0.545045" hotspotY="0.547771" />
+                    <frame duration="1" hotspotX="0.545045" hotspotY="0.547771" />
+                    <frame duration="1" hotspotX="0.53304" hotspotY="0.547771" />
+                    <frame duration="1" hotspotX="0.53304" hotspotY="0.547771" />
+                    <frame duration="1" hotspotX="0.53304" hotspotY="0.530864" />
+                    <frame duration="1" hotspotX="0.53304" hotspotY="0.530864" />
+                    <frame duration="1" hotspotX="0.521552" hotspotY="0.530864" />
+                    <frame duration="1" hotspotX="0.521552" hotspotY="0.530864" />
+                    <frame duration="1" hotspotX="0.521552" hotspotY="0.51497" />
+                    <frame duration="1" hotspotX="0.521552" hotspotY="0.51497" />
+                    <frame duration="1" hotspotX="0.510549" hotspotY="0.51497" />
+                    <frame duration="1" hotspotX="0.510549" hotspotY="0.51497" />
+                    <frame duration="1" hotspotX="0.510549" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.510549" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="grafiti" sid="8310645074133201">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="9123612576373697" speed="5">
+                    <frame duration="1" hotspotX="0.500161" hotspotY="0.50098" original-source="D:\Construct 2\Le jeu de la vie\Ressources\Cedric\Graf\centrale.png">
+                        <collision-poly>
+                            <point x="0.865079" y="0.622222" />
+                            <point x="0.112103" y="0.686111" />
+                            <point x="0.0625" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="grafiti_" sid="9185675495675279">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="6278434571715802" speed="5">
+                    <frame duration="1" hotspotX="0.500437" hotspotY="0.500505" original-source="D:\Construct 2\Le jeu de la vie\Ressources\Cedric\Graf\scool.png">
+                        <collision-poly>
+                            <point x="0.0654762" y="0.183333" />
+                            <point x="0.895833" y="0.5" />
+                            <point x="0.865079" y="0.622222" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="touches_directionnelles" sid="8403309870797735">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="631750661464682" speed="5">
+                    <frame duration="1" hotspotX="0.474227" hotspotY="0.5" original-source="D:\Construct 2\Le jeu de la vie\Ressources\Cedric\touches_directionnelles.png">
+                        <collision-poly>
+                            <point x="0.917526" y="0.974026" />
+                            <point x="0.0360825" y="0.967532" />
+                            <point x="0.0154639" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="scool_" sid="9843559025018128">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="2468977041470327" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.500504" original-source="D:\Construct 2\Le jeu de la vie\Ressources\Cedric\Graf\scool_2.png">
+                        <collision-poly>
+                            <point x="0.106685" y="0.238551" />
+                            <point x="0.499887" y="0.202315" />
+                            <point x="0.90862" y="0.204328" />
+                            <point x="0.21517" y="0.499748" />
+                            <point x="0.73914" y="0.416709" />
+                            <point x="0.499887" y="0.887267" />
+                            <point x="0.182759" y="0.591344" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="p1Euro" sid="5041173688983973">
+            <plugin id="Particles" />
+            <texture original-source="D:\Construct 2\Le jeu de la vie\Ressources\Cedric\euro.png" />
+        </object-type>
+    </object-folder>
+    <families />
+    <layout-folder>
+        <layout>Intro.xml</layout>
+        <layout>Exterieur.xml</layout>
+        <layout>Magasin.xml</layout>
+        <layout>Travail_1.xml</layout>
+        <layout>Travail_2.xml</layout>
+        <layout>Game_Over.xml</layout>
+        <layout>Fin.xml</layout>
+    </layout-folder>
+    <event-folder>
+        <event-sheet>Comportement Exterieur.xml</event-sheet>
+        <event-sheet>Comportement Magasin.xml</event-sheet>
+        <event-sheet>Comportement Travail_1.xml</event-sheet>
+        <event-sheet>Comportement Travail_2.xml</event-sheet>
+        <event-sheet>Mouvements Perso.xml</event-sheet>
+        <event-sheet>Comportement Intro.xml</event-sheet>
+        <event-sheet>Comportement Game_Over.xml</event-sheet>
+        <event-sheet>Comportement Fin.xml</event-sheet>
+    </event-folder>
+    <global-instances>
+        <global-instance type="Keyboard" uid="2" />
+        <global-instance type="AJAX" uid="19" />
+        <global-instance type="Mouse" uid="21" />
+        <global-instance type="Audio" uid="42">
+            <properties>
+                <timescale-audio>Off</timescale-audio>
+                <saveload>All</saveload>
+                <play-in-background>No</play-in-background>
+                <positioned-audio></positioned-audio>
+                <panning-model>HRTF</panning-model>
+                <distance-model>Inverse</distance-model>
+                <listener-z-height>600</listener-z-height>
+                <reference-distance>600</reference-distance>
+                <maximum-distance>10000</maximum-distance>
+                <roll-off-factor>1</roll-off-factor>
+            </properties>
+        </global-instance>
+        <global-instance type="Fonction" uid="270" />
+    </global-instances>
+    <sounds-folder>
+        <sound-folder name="Pieces">
+            <file name="1.ogg" />
+            <file name="10.ogg" />
+            <file name="11.ogg" />
+            <file name="12.ogg" />
+            <file name="2.ogg" />
+            <file name="3.ogg" />
+            <file name="4.ogg" />
+            <file name="5.ogg" />
+            <file name="6.ogg" />
+            <file name="7.ogg" />
+            <file name="8.ogg" />
+            <file name="9.ogg" />
+        </sound-folder>
+        <sound-folder name="Douleur">
+            <file name="Mort_1.ogg" />
+            <file name="Mort_2.ogg" />
+            <file name="Ouch_1.ogg" />
+            <file name="Ouch_2.ogg" />
+            <file name="Ouch_3.ogg" />
+        </sound-folder>
+        <sound-folder name="Arme">
+            <file name="Tir_0.ogg" />
+            <file name="Impact_1.ogg" />
+            <file name="Impact_2.ogg" />
+            <file name="Impact_3.ogg" />
+            <file name="Impact_4.ogg" />
+            <file name="Recharge_2.ogg" />
+            <file name="Recharge_3.ogg" />
+            <file name="Tir_1.ogg" />
+            <file name="Tir_2.ogg" />
+            <file name="Tir_3.ogg" />
+            <file name="Tir_4.ogg" />
+            <file name="Tir_5.ogg" />
+            <file name="Vide_1.ogg" />
+        </sound-folder>
+        <file name="Bouton_1.ogg" />
+        <file name="Bouton_2.ogg" />
+        <file name="Fouet_Croissant.ogg" />
+        <file name="Lance_Croissant.ogg" />
+        <file name="Porte_Ferme.ogg" />
+        <file name="Alerte MGS.ogg" />
+        <file name="Error_2.ogg" />
+        <file name="Porte_Ouvre.ogg" />
+        <file name="Erreur.ogg" />
+    </sounds-folder>
+    <music-folder>
+        <file name="Savant_Basement_extrait_1.ogg" />
+        <file name="Contexte_Les_Champs_Elysees.ogg" />
+        <file name="Calcul_Choir_ Bella Ciao.ogg" />
+        <file name="Travail_Red Army Choir_ Korobelniki.ogg" />
+        <file name="psychopath_Grand_Theft_Soviet.ogg" />
+        <file name="Time To Say Goodbye complet.ogg" />
+        <file name="ukelele Ameliore.ogg" />
+    </music-folder>
+    <files-folder>
+        <file-folder name="Icons">
+            <file name="icon-16.png" />
+            <file name="icon-32.png" />
+            <file name="icon-114.png" />
+            <file name="icon-128.png" />
+            <file name="icon-256.png" />
+            <file name="loading-logo.png" />
+        </file-folder>
+        <file name="deplacements_clavier.json" />
+    </files-folder>
+</c2project>

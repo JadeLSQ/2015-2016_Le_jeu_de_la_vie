@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Mouvements Perso</name>
+    <events>
+        <comment>Chargement du fichier des touches possibles pour les interractions dans lTouchesPossibles (haut, gauche, bas, droite)</comment>
+        <event-block sid="9797232382569411">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="7034309225818679" type="System" />
+            </conditions>
+            <actions>
+                <action id="1" name="Request project file" sid="4386907826040464" type="AJAX">
+                    <param id="0" name="Tag">&quot;deplacements_clavier&quot;</param>
+                    <param id="1" name="File">deplacements_clavier.json</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="4684747030243325">
+            <conditions>
+                <condition id="0" name="On completed" sid="6932347074016335" type="AJAX">
+                    <param id="0" name="Tag">&quot;deplacements_clavier&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="11" name="Load" sid="8459074588372904" type="lTouchesPossibles">
+                    <param id="0" name="JSON">AJAX.LastData</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Gestion des entrées clavier</comment>
+        <comment>Ajoute la nouvelle touche appuyé dans la liste lTouchesActuelles ssi elle est dans la liste lTouchesPossibles</comment>
+        <event-block sid="5661817833392538">
+            <conditions>
+                <condition id="1" name="On any key pressed" sid="5925927259310086" type="Keyboard" />
+                <condition id="5" name="Contains value" sid="9117256392458489" type="lTouchesPossibles">
+                    <param id="0" name="Value">Keyboard.LastKeyCode</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="10" name="Insert" sid="5527889984341198" type="lTouchesActuelles">
+                    <param id="0" name="Value">Keyboard.LastKeyCode</param>
+                    <param id="1" name="Index">0</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="7207202248298276">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="4391928026666647" type="System">
+                            <param id="0" name="Variable">EtatScript</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="4319766655411483" type="System">
+                            <param id="0" name="Variable">EtatScript</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>Enlève la touche relaché de la liste lTouchesActuelles</comment>
+        <event-block sid="7815390943870498">
+            <conditions>
+                <condition id="7" name="On any key released" sid="1823269435980631" type="Keyboard" />
+                <condition id="5" name="Contains value" sid="2168021197765862" type="lTouchesPossibles">
+                    <param id="0" name="Value">Keyboard.LastKeyCode</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="9281979096233205">
+                    <conditions>
+                        <condition id="3" name="For each element" sid="8624349580662635" type="lTouchesActuelles">
+                            <param id="0" name="Axes">2</param>
+                        </condition>
+                        <condition id="4" name="Compare current value" sid="3673717159351784" type="lTouchesActuelles">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="Value">Keyboard.LastKeyCode</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="9" name="Delete" sid="5296268260696493" type="lTouchesActuelles">
+                            <param id="0" name="Index">lTouchesActuelles.CurX</param>
+                            <param id="1" name="Axis">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>Déplacements et animations de déplacement quand il y a au moins une touche listé dans lTouchesActuelles</comment>
+        <event-block sid="6862444897109002">
+            <conditions>
+                <condition id="0" name="Compare at X" sid="5497760393511476" type="lTouchesActuelles">
+                    <param id="0" name="X">0</param>
+                    <param id="1" name="Comparison">1</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="3151497944279919" type="System">
+                    <param id="0" name="Variable">Pause</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="1610268082121485">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="9847363944134972" type="System">
+                            <param id="0" name="First value">lTouchesActuelles.Front</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">lTouchesPossibles.At(0)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="1370060184069774" type="sPerso">
+                            <param id="0" name="Control">2</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="8528762217687785" type="sPerso">
+                            <param id="0" name="Animation">&quot;Haut_Marche&quot; &amp; StatutPerso</param>
+                            <param id="1" name="From">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="4857294611947996">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="1479992977798403" type="System">
+                            <param id="0" name="First value">lTouchesActuelles.Front</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">lTouchesPossibles.At(1)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="4929029325768088" type="sPerso">
+                            <param id="0" name="Control">0</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="3024511256261812" type="sPerso">
+                            <param id="0" name="Animation">&quot;Gauche_Marche&quot; &amp; StatutPerso</param>
+                            <param id="1" name="From">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="1684193880946849">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="4409925742158148" type="System">
+                            <param id="0" name="First value">lTouchesActuelles.Front</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">lTouchesPossibles.At(2)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="6146745512378448" type="sPerso">
+                            <param id="0" name="Control">3</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="6502873366380247" type="sPerso">
+                            <param id="0" name="Animation">&quot;Bas_Marche&quot; &amp; StatutPerso</param>
+                            <param id="1" name="From">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="9255216394859364">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="1167049914849965" type="System">
+                            <param id="0" name="First value">lTouchesActuelles.Front</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">lTouchesPossibles.At(3)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="8640410545632682" type="sPerso">
+                            <param id="0" name="Control">1</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="1792348166224776" type="sPerso">
+                            <param id="0" name="Animation">&quot;Droit_Marche&quot; &amp; StatutPerso</param>
+                            <param id="1" name="From">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>Gestions des fins d&apos;animations :</comment>
+        <comment>Choisi automatiquement l&apos;animation de perso fixe quand il ne bouge pas</comment>
+        <event-block sid="1329691833193848">
+            <conditions>
+                <condition behavior="8Direction" id="0" inverted="1" name="Is moving" sid="8856226015072335" type="sPerso" />
+                <condition id="-8" name="Compare two values" sid="836168369978907" type="System">
+                    <param id="0" name="First value">mid(sPerso.AnimationName, len(sPerso.AnimationName)- 6-len(StatutPerso), 6)</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Second value">&quot;Marche&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="3708544090355451" type="sPerso">
+                    <param id="0" name="Animation">mid(sPerso.AnimationName, 0, len(sPerso.AnimationName) - 6 - len(StatutPerso) ) &amp; &quot;Fixe&quot; &amp; StatutPerso</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Comportement Fin</name>
+    <events>
+        <event-block sid="4053094553961077">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="9309926666183492" type="System">
+                    <param id="0" name="Interval (seconds)">0.05</param>
+                </condition>
+                <condition id="-8" name="Compare two values" sid="309589656996189" type="System">
+                    <param id="0" name="First value">LayerOpacity(1)</param>
+                    <param id="1" name="Comparison">2</param>
+                    <param id="2" name="Second value">100</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-18" name="Set layer opacity" sid="8067424355830865" type="System">
+                    <param id="0" name="Layer">1</param>
+                    <param id="1" name="Opacity">LayerOpacity(1) + 1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="4588470547770745">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="1138333918251693" type="System" />
+            </conditions>
+            <actions>
+                <action id="33" name="Stop all" sid="3544010153346764" type="Audio" />
+                <action id="0" name="Play" sid="472989323957333" type="Audio">
+                    <param id="0" name="Audio file">ukelele Ameliore</param>
+                    <param id="2" name="Loop">1</param>
+                    <param id="3" name="Volume">-6</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

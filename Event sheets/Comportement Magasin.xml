@@ -1,0 +1,430 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Comportement Magasin</name>
+    <events>
+        <variable comment="Anime les gains et pertes d&apos;argent" constant="0" name="ModificationArgent" sid="2938976777777413" static="0" type="number">0</variable>
+        <include>Mouvements Perso</include>
+        <comment>Entrée dans le magasin</comment>
+        <event-block sid="235338324262616">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="4522287735656607" type="System" />
+            </conditions>
+            <actions>
+                <action id="6" name="Stop" sid="9226527359796801" type="Audio">
+                    <param id="0" name="Tag">&quot;Ambiance&quot;</param>
+                </action>
+                <action id="26" name="Set listener object" sid="9903031537283096" type="Audio">
+                    <param id="0" name="Object">sPerso</param>
+                </action>
+                <action id="24" name="Play at position" sid="9560782371445167" type="Audio">
+                    <param id="0" name="Audio file">Porte_Ferme</param>
+                    <param id="1" name="Loop">0</param>
+                    <param id="2" name="Volume">-5</param>
+                    <param id="3" name="X">427</param>
+                    <param id="4" name="Y">500</param>
+                    <param id="5" name="Angle">0</param>
+                    <param id="6" name="Inner angle">360</param>
+                    <param id="7" name="Outer angle">360</param>
+                    <param id="8" name="Outer gain">0</param>
+                    <param id="9" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="0" name="Play" sid="7678435146423212" type="Audio">
+                    <param id="0" name="Audio file">Savant_Basement_extrait_1</param>
+                    <param id="2" name="Loop">1</param>
+                    <param id="3" name="Volume">-25</param>
+                    <param id="1" name="Tag (optional)">&quot;Ambiance&quot;</param>
+                </action>
+                <action id="0" name="Set text" sid="1396245407051264" type="tCoins">
+                    <param id="0" name="Text">&quot;Argent : &quot; &amp; Argent &amp; &quot;€&quot;</param>
+                </action>
+                <action id="-3" name="Set position" sid="1421197793082198" type="sPerso">
+                    <param id="0" name="X">427</param>
+                    <param id="1" name="Y">433</param>
+                </action>
+                <action id="4" name="Set animation" sid="2092245358219324" type="sPerso">
+                    <param id="0" name="Animation">&quot;Haut_Marche&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action behavior="8Direction" id="10" name="Set vector Y" sid="109718127125302" type="sPerso">
+                    <param id="0" name="Vector Y">-500</param>
+                </action>
+                <action id="0" name="Set text" sid="5810682768431484" type="tNbCroissants">
+                    <param id="0" name="Text">NbDeCroissants</param>
+                </action>
+                <action id="0" name="Set text" sid="111053031029154" type="tNbBalles">
+                    <param id="0" name="Text">NbDeBalles</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="924321119516675">
+                    <conditions>
+                        <condition id="-10" name="For" sid="4614740981926538" type="System">
+                            <param id="0" name="Name">&quot;i&quot;</param>
+                            <param id="1" name="Start index">0</param>
+                            <param id="2" name="End index">12</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="9" name="Preload (by name)" sid="9575871678022688" type="Audio">
+                            <param id="0" name="Folder">0</param>
+                            <param id="1" name="Audio file name">str(loopindex)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block disabled="1" sid="5989747083879482">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="5623578778730045" type="System">
+                            <param id="0" name="Object">sObjetAchat</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="7459667659377928" type="System">
+                            <param id="0" name="Object to create">tPrixObjet</param>
+                            <param id="1" name="Layer">3</param>
+                            <param id="2" name="X">sObjetAchat.X</param>
+                            <param id="3" name="Y">sObjetAchat.Y</param>
+                        </action>
+                        <action id="0" name="Set text" sid="3263091000863508" type="tPrixObjet">
+                            <param id="0" name="Text">sObjetAchat.Prix &amp; &quot; €&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>Animation du vendeur</comment>
+        <event-block sid="4147699750021532">
+            <conditions>
+                <condition id="-21" name="Is between values" sid="2040895534636068" type="System">
+                    <param id="0" name="Value">sVendeur.Sine.CyclePosition</param>
+                    <param id="1" name="Lower bound">0.2</param>
+                    <param id="2" name="Upper bound">0.7</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="7264150859118537" type="sVendeur">
+                    <param id="0" name="Animation">&quot;Marche_Gauche&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="4440449653512474">
+            <conditions>
+                <condition id="-21" inverted="1" name="Is between values" sid="5504665834278043" type="System">
+                    <param id="0" name="Value">sVendeur.Sine.CyclePosition</param>
+                    <param id="1" name="Lower bound">0.2</param>
+                    <param id="2" name="Upper bound">0.7</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="2944134894446073" type="sVendeur">
+                    <param id="0" name="Animation">&quot;Marche_Droite&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Affichage du menu d&apos;achats</comment>
+        <event-block sid="417193303824512">
+            <conditions>
+                <condition id="0" name="On clicked" sid="6608557051679391" type="bAcheter" />
+            </conditions>
+            <actions>
+                <action id="-4" name="Set layer visible" sid="1537875884887773" type="System">
+                    <param id="0" name="Layer">2</param>
+                    <param id="1" name="Visibility">1</param>
+                </action>
+                <action id="-4" name="Set layer visible" sid="5490340627785346" type="System">
+                    <param id="0" name="Layer">3</param>
+                    <param id="1" name="Visibility">1</param>
+                </action>
+                <action id="2" name="Set visible" sid="3323114175516427" type="bAcheter">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Masquage du menu d&apos;achats</comment>
+        <event-block sid="6831748823977581">
+            <conditions>
+                <condition id="0" name="On clicked" sid="9631906654313188" type="bSortir" />
+            </conditions>
+            <actions>
+                <action id="-4" name="Set layer visible" sid="5753814706819415" type="System">
+                    <param id="0" name="Layer">2</param>
+                    <param id="1" name="Visibility">0</param>
+                </action>
+                <action id="-4" name="Set layer visible" sid="6119656879403668" type="System">
+                    <param id="0" name="Layer">3</param>
+                    <param id="1" name="Visibility">0</param>
+                </action>
+                <action id="2" name="Set visible" sid="1632966297924083" type="bAcheter">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Gestion des achats</comment>
+        <event-block sid="6551178643398654">
+            <conditions>
+                <condition id="6" name="On object clicked" sid="7892173283616713" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">sObjetAchat</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="5380231483479636" type="System">
+                    <param id="0" name="Variable">Argent</param>
+                    <param id="1" name="Comparison">5</param>
+                    <param id="2" name="Value">sObjetAchat.Prix - ModificationArgent</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Add to" sid="5240100140410449" type="System">
+                    <param id="0" name="Variable">ModificationArgent</param>
+                    <param id="1" name="Value">-1 * sObjetAchat.Prix</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="3489699700797986">
+                    <conditions>
+                        <condition id="2" name="Is playing" sid="8226209480000045" type="sObjetAchat">
+                            <param id="0" name="Animation">&quot;Croissant&quot;</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="831291534312796" type="tFoisMagasin">
+                            <param id="0" name="Unique ID">274</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="916130060355015" type="System">
+                            <param id="0" name="Variable">NbDeCroissants</param>
+                            <param id="1" name="Value">mid(tFoisMagasin.Text, 1, len(tFoisMagasin.Text))</param>
+                        </action>
+                        <action id="0" name="Set text" sid="1439953282186914" type="tNbCroissants">
+                            <param id="0" name="Text">NbDeCroissants</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="8382874189035891">
+                    <conditions>
+                        <condition id="2" name="Is playing" sid="285762284425066" type="sObjetAchat">
+                            <param id="0" name="Animation">&quot;Gun&quot;</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="9176384053404902" type="tFoisMagasin">
+                            <param id="0" name="Unique ID">275</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="9399708143066267" type="System">
+                            <param id="0" name="Variable">NbDeBalles</param>
+                            <param id="1" name="Value">mid(tFoisMagasin.Text, 1, len(tFoisMagasin.Text))</param>
+                        </action>
+                        <action id="0" name="Set text" sid="4259507682070692" type="tNbBalles">
+                            <param id="0" name="Text">NbDeBalles</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>Affichage de leurs utilitées</comment>
+        <event-block sid="3782399881227439">
+            <conditions>
+                <condition id="7" name="Cursor is over object" sid="8714115761267637" type="Mouse">
+                    <param id="0" name="Object">sObjetAchat</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="8027679118086256">
+                    <conditions>
+                        <condition id="2" name="Is playing" sid="666253947987373" type="sObjetAchat">
+                            <param id="0" name="Animation">&quot;Croissant&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="6789945051360991" type="Fonction">
+                            <param id="0" name="Name">&quot;Infos Magasin&quot;</param>
+                            <param id="1" name="Parameter {n}">235</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="6310972652237163">
+                    <conditions>
+                        <condition id="2" name="Is playing" sid="8013859578871862" type="sObjetAchat">
+                            <param id="0" name="Animation">&quot;Gun&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="6625374125115732" type="Fonction">
+                            <param id="0" name="Name">&quot;Infos Magasin&quot;</param>
+                            <param id="1" name="Parameter {n}">236</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="6183215234658417">
+                    <conditions>
+                        <condition id="2" name="Is playing" sid="2275807568818241" type="sObjetAchat">
+                            <param id="0" name="Animation">&quot;Ruby&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="3503180492411405" type="Fonction">
+                            <param id="0" name="Name">&quot;Infos Magasin&quot;</param>
+                            <param id="1" name="Parameter {n}">237</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="9487002650112318">
+            <conditions>
+                <condition id="0" name="On function" sid="3817798810995387" type="Fonction">
+                    <param id="0" name="Name">&quot;Infos Magasin&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="3700763718824424">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="3235438302211395" type="System">
+                            <param id="0" name="Object">tQuelquonque</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="3427138473666982" type="tQuelquonque">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="6001210897769868">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="2964933825374119" type="tQuelquonque">
+                            <param id="0" name="Unique ID">Fonction.Param(0)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="1717789358582026" type="tQuelquonque">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>Animation des changements d&apos;argent</comment>
+        <event-block sid="2902560109663481">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="1342882665953302" type="System">
+                    <param id="0" name="Variable">ModificationArgent</param>
+                    <param id="1" name="Comparison">1</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <variable constant="0" name="Pas" sid="4805587902026435" static="0" type="number">9</variable>
+                <event-block sid="6181029336906454">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="5077485146841906" type="System">
+                            <param id="0" name="Interval (seconds)">0.02</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="9070269143280796" type="System">
+                            <param id="0" name="Variable">Pas</param>
+                            <param id="1" name="Value">abs(int(ModificationArgent/40))+1</param>
+                        </action>
+                        <action id="7" name="Play (by name)" sid="1206776715583345" type="Audio">
+                            <param id="0" name="Folder">0</param>
+                            <param id="1" name="Audio file name">str(int(random(11)+1))</param>
+                            <param id="3" name="Loop">0</param>
+                            <param id="4" name="Volume">0</param>
+                            <param id="2" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="1074111179721266">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="5994704669073562" type="System">
+                                    <param id="0" name="Variable">ModificationArgent</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Value">1-Pas</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Add to" sid="11775880537403" type="System">
+                                    <param id="0" name="Variable">Argent</param>
+                                    <param id="1" name="Value">-Pas</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="1134856483652166" type="System">
+                                    <param id="0" name="Variable">ModificationArgent</param>
+                                    <param id="1" name="Value">Pas</param>
+                                </action>
+                                <action id="0" name="Set text" sid="9317485403690308" type="tCoins">
+                                    <param id="0" name="Text">&quot;Argent : &quot; &amp; Argent &amp; &quot;€&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="6183488911115937">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="4332251104794046" type="System">
+                                    <param id="0" name="Variable">ModificationArgent</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">Pas-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Add to" sid="3487091444453024" type="System">
+                                    <param id="0" name="Variable">Argent</param>
+                                    <param id="1" name="Value">Pas</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="4444124307940953" type="System">
+                                    <param id="0" name="Variable">ModificationArgent</param>
+                                    <param id="1" name="Value">-Pas</param>
+                                </action>
+                                <action id="0" name="Set text" sid="2840721186715398" type="tCoins">
+                                    <param id="0" name="Text">&quot;Argent : &quot; &amp; Argent &amp; &quot;€&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="8011991343973503">
+                            <conditions>
+                                <condition id="-21" name="Is between values" sid="142897065333389" type="System">
+                                    <param id="0" name="Value">ModificationArgent</param>
+                                    <param id="1" name="Lower bound">1-Pas</param>
+                                    <param id="2" name="Upper bound">Pas-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Add to" sid="8796534994430785" type="System">
+                                    <param id="0" name="Variable">Argent</param>
+                                    <param id="1" name="Value">ModificationArgent</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="6398453823811539" type="System">
+                                    <param id="0" name="Variable">ModificationArgent</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="0" name="Set text" sid="7520068936657501" type="tCoins">
+                                    <param id="0" name="Text">&quot;Argent : &quot; &amp; Argent &amp; &quot;€&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>Sortie du magasin</comment>
+        <event-block any="1" sid="765683935374337">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="7704245279933858" type="sPerso">
+                    <param id="0" name="Object">tbSortir</param>
+                </condition>
+                <condition id="6" name="On object clicked" sid="762240031374388" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">sSortie</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="1638431948257548" type="System">
+                    <param id="0" name="Layout">Exterieur</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Comportement Intro</name>
+    <events>
+        <event-block sid="7683533761338085">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="8640130529851832" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="1538139633417225" type="System">
+                    <param id="0" name="Variable">CurrentTime</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="0" name="Set text" sid="1441428867330682" type="tDialogue">
+                    <param id="0" name="Text">&quot;&quot;</param>
+                </action>
+                <action id="-9" name="Set value" sid="9307045906939693" type="System">
+                    <param id="0" name="Variable">OrigineTime</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="1266203716877768" type="sSuivant">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="4" name="Preload" sid="3313473785522648" type="Audio">
+                    <param id="0" name="Audio file">Travail_Red Army Choir_ Korobelniki</param>
+                </action>
+                <action id="4" name="Preload" sid="4513799979538355" type="Audio">
+                    <param id="0" name="Audio file">Bouton_1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="5585511727152531">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="3477884242709015" type="System">
+                    <param id="0" name="Interval (seconds)">0.03</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="9713354079126633">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="4912527313023089" type="System">
+                            <param id="0" name="Variable">CurrentTime</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">63</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="3524522475197149" type="System">
+                            <param id="0" name="Variable">OrigineTime</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="5686765086752038" type="tDialogue">
+                            <param id="0" name="Text">mid(&quot;Allez travailler ! Vous avez une dette de 1000 € à me rembourser !&quot;, 0, CurrentTime)</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="8984395302253489" type="System">
+                            <param id="0" name="Variable">CurrentTime</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="7528274763897846">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="382234924441804" type="System">
+                            <param id="0" name="Variable">CurrentTime</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">66</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="4795090573208763" type="System">
+                            <param id="0" name="Variable">OrigineTime</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="4747974266939024" type="tDialogue">
+                            <param id="0" name="Text">mid(&quot;Tenez, voici trois croissants pour vous faire des amis au travail.&quot;, 0, CurrentTime)</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="1392694556886727" type="System">
+                            <param id="0" name="Variable">CurrentTime</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="9122410996574535">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="2733299576446095" type="System">
+                            <param id="0" name="First value">CurrentTime%6</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Set Y" sid="9233003788425263" type="sBossPortrait">
+                            <param id="0" name="Y">sBossPortrait.Y - 5</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3430278618480578">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="2419177109086528" type="System">
+                            <param id="0" name="First value">CurrentTime%6</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">3</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Set Y" sid="5572605192093017" type="sBossPortrait">
+                            <param id="0" name="Y">sBossPortrait.Y + 5</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="7914875624262045">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="9363098917834313" type="System">
+                    <param id="0" name="Variable">CurrentTime</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">63</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="2810794922327546" type="System">
+                    <param id="0" name="Variable">OrigineTime</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="2527695870617821" type="sSuivant" />
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="7062513628392587" type="sSuivant">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action behavior="Flash" id="0" name="Flash" sid="4017087431944226" type="sSuivant">
+                    <param id="0" name="&apos;On&apos; time">0.3</param>
+                    <param id="1" name="&apos;Off&apos; time">0.2</param>
+                    <param id="2" name="Duration">1.0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7755168064192904">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="8143604520273538" type="System">
+                    <param id="0" name="Variable">CurrentTime</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">66</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="685605012449749" type="System">
+                    <param id="0" name="Variable">OrigineTime</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="2831765949297047" type="sSuivant" />
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="1443828096727536" type="sSuivant">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action behavior="Flash" id="0" name="Flash" sid="6878402213046354" type="sSuivant">
+                    <param id="0" name="&apos;On&apos; time">0.3</param>
+                    <param id="1" name="&apos;Off&apos; time">0.2</param>
+                    <param id="2" name="Duration">1.0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="6598636433785088" type="tQuelquonque">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block any="1" sid="5821297144458489">
+            <conditions>
+                <condition id="1" name="On any click" sid="9531071493318165" type="Mouse" />
+                <condition id="0" name="On key pressed" sid="5660119836487799" type="Keyboard">
+                    <param id="0" name="Key">39 (Right arrow)</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="1720571873362823">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="608321260597213" type="System">
+                            <param id="0" name="Variable">OrigineTime</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="3992265681803365" type="System">
+                            <param id="0" name="Variable">CurrentTime</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">66</param>
+                        </condition>
+                        <condition id="7" name="Cursor is over object" sid="3113463575369361" type="Mouse">
+                            <param id="0" name="Object">sSuivant</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="6394741826846077" type="System">
+                            <param id="0" name="Layout">Travail_2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="4796125294947323">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="1351532494675178" type="System">
+                            <param id="0" name="Variable">OrigineTime</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="5548048706084777" type="System">
+                            <param id="0" name="Variable">CurrentTime</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">66</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="6350463478700357" type="Audio">
+                            <param id="0" name="Audio file">Bouton_2</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="8581620187238546" type="System">
+                            <param id="0" name="Variable">CurrentTime</param>
+                            <param id="1" name="Value">66</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="9378072405824244">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="2561679148103745" type="System">
+                            <param id="0" name="Variable">OrigineTime</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="1123654823625002" type="System">
+                            <param id="0" name="Variable">CurrentTime</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">63</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="3219867743335412" type="Audio">
+                            <param id="0" name="Audio file">Bouton_2</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="7403378663736019" type="System">
+                            <param id="0" name="Variable">OrigineTime</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="7811608173808047" type="System">
+                            <param id="0" name="Variable">CurrentTime</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action behavior="Flash" id="1" name="Stop flashing" sid="6852937310576484" type="sSuivant" />
+                        <action id="-15" name="Set visible" sid="4992859641069213" type="sSuivant">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="7882632337417298">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="2602854631142543" type="System">
+                            <param id="0" name="Variable">OrigineTime</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="5372561231446201" type="System">
+                            <param id="0" name="Variable">CurrentTime</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">63</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="4928505865477858" type="Audio">
+                            <param id="0" name="Audio file">Bouton_2</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="9106991101818932" type="System">
+                            <param id="0" name="Variable">CurrentTime</param>
+                            <param id="1" name="Value">63</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

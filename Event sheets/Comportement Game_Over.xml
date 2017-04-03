@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Comportement Game_Over</name>
+    <events>
+        <event-block sid="6828117798574017">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="9994977050665594" type="System" />
+            </conditions>
+            <actions>
+                <action id="33" name="Stop all" sid="4710275700532719" type="Audio" />
+                <action id="0" name="Play" sid="779241387934645" type="Audio">
+                    <param id="0" name="Audio file">Time To Say Goodbye complet</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="0" name="Set text" sid="9667330737757111" type="tScore">
+                    <param id="0" name="Text">&quot;Désolé, mais vous n&apos;avez pas réussi à vous en sortir dans la vie.&quot; &amp; newline</param>
+                </action>
+                <action id="1" name="Append text" sid="2790595150690912" type="tScore">
+                    <param id="0" name="Text">&quot;Vous mourez donc avec &quot; &amp; Dette &amp; &quot;€ de dettes.&quot; &amp; newline</param>
+                </action>
+                <action id="1" name="Append text" sid="4559379931564087" type="tScore">
+                    <param id="0" name="Text">NbAmisSuit &amp; &quot; amis vous suivaient et vous protégaient avant que vous ne mourriez.&quot; &amp; newline</param>
+                </action>
+                <action id="1" name="Append text" sid="5689479900652612" type="tScore">
+                    <param id="0" name="Text">&quot;Et vous avez exploité &quot; &amp; NbAmisTravail_1 + NbAmisTravail_2 &amp; &quot; amis pour tenter de rembourser plus rapidement vos dettes.&quot; &amp; newline</param>
+                </action>
+                <action id="1" name="Append text" sid="2324381353025357" type="tScore">
+                    <param id="0" name="Text">&quot;Allez, vous ferez beaucoup mieux la prochaine fois.&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="8483257434965862">
+            <conditions>
+                <condition id="0" name="On clicked" sid="154699008626166" type="bStart" />
+            </conditions>
+            <actions>
+                <action id="-21" name="Reset global variables" sid="1934377340936121" type="System" />
+                <action id="-45" name="Reset persisted objects" sid="574148433592508" type="System" />
+                <action id="-9" name="Set value" sid="8223822711254471" type="System">
+                    <param id="0" name="Variable">DetteDemandee</param>
+                    <param id="1" name="Value">5</param>
+                </action>
+                <action id="33" name="Stop all" sid="3986253609521818" type="Audio" />
+                <action id="-2" name="Go to layout" sid="1260373462380753" type="System">
+                    <param id="0" name="Layout">Travail_2</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="5448079377919964">
+            <conditions>
+                <condition id="-8" name="Compare two values" sid="7097079692789569" type="System">
+                    <param id="0" name="First value">sMortFin.Sine.CyclePosition</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Second value">0.75</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="2513234011120324" type="sMortFin" />
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
